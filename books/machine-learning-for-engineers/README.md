@@ -5,5 +5,5 @@
 
 ## Source Code
 * [Packt's GitHub repository](http://github.com/PacktPublishing/Machine-Learning-for-Developers)
-* [Python-Jupyter notebooks in ML Docker images (this repository)](http://github.com/machine-learning-helpers/induction-python/tree/master/books/machine-learning-for-developers/)
+* [Python-Jupyter notebooks in ML Docker images (this repository)](http://github.com/machine-learning-helpers/induction-python/tree/master/books/machine-learning-for-engineers)
 
