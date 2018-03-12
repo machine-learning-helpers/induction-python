@@ -37,9 +37,7 @@ Which of the following supervised machine learning methods are greatly affected 
 4. Decision Trees
 5. Neural Networks
 
-[x](0/1) Answer: 1
-[x](0/1) Answer: 3, 5
-[x](0/1) Answer: 2
+Answer: 1, 2, 5
 
 ## Item 5
 Select which of the following statements are true.
@@ -63,9 +61,14 @@ Answer: 1 (KNN is diagram #2)
 A decision tree of depth 2 is visualized below. Using the `value` attribute of each leaf, find the accuracy score for the tree of depth 2 and the accuracy score for a tree of depth 1.
 What is the improvement in accuracy between the model of depth 1 and the model of depth 2? (i.e. accuracy2 - accuracy1)
 
-[x](0/1) Answer: 0.5
+[x](0/1) Answer: 0.1
 [x](0/1) Answer: 0.2
+[x](0/1) Answer: 0.3
+[x](0/1) Answer: 0.4
+[x](0/1) Answer: 0.5
 [x](0/1) Answer: 0.8
+
+Answer: 
 
 ## Item 8
 For the autograded assignment in this module, you will create a classifier to predict whether a given blight ticket will be paid on time (See the module 4 assignment notebook for a more detailed description). Which of the following features should be removed from the training of the model to prevent data leakage? (Select all that apply)
@@ -75,9 +78,7 @@ For the autograded assignment in this module, you will create a classifier to pr
 4. agency_name - Agency that issued the ticket
 5. collection_status - Flag for payments in collections
 
-[x](0/1) Answer: 4
-[x](0/1) Answer: 1
-[x](0/1) Answer: 1, 4
+Answer: 3, 5
 
 ## Item 9
 Which of the following might be good ways to help prevent a data leakage situation?
@@ -86,9 +87,14 @@ Which of the following might be good ways to help prevent a data leakage situati
 3. Remove variables that a model in production wouldn’t have access to
 4. Sanity check the model with an unseen validation set
 
+[x](0/1) Answer: 1
 [x](0/1) Answer: 2
 [x](0/1) Answer: 3
+[x](0/1) Answer: 4
 [x](0/1) Answer: 2, 4
+[x](0/1) Answer: 2, 3
+
+Answer: 
 
 ## Item 10
 Question 10
