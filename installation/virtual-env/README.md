@@ -9,11 +9,60 @@ such as Jupyter Lab, is to use a
 [Docker image for Python Jupyter Lab notebooks](http://github.com/machine-learning-helpers/docker-python-jupyter).
 
 ## See also
+* [Pipenv: Python Development Workflow for Humans](http://pypi.org/project/pipenv)
+* [Pipenv and Virtual Environments](http://docs.python-guide.org/dev/virtualenvs/)
 * [Installing Python ``virtualenv`` on CentOS 7](https://blog.teststation.org/centos/python/2016/05/11/installing-python-virtualenv-centos-7)
 
 # Installation
 
-## On CentOS
+## ``pipenv``
+
+### Linux
+
+#### CentOS
+```bash
+$ yum -y install pipenv
+```
+
+#### Fedora
+```bash
+$ dnf -y install pipenv
+```
+
+### MacOS
+```bash
+$ brew install pipenv
+```
+
+### Install specific versions in a given project
+* Go to a project directory and install the required libraries.
+  It will create a ``Pipfile`` file, if not already exising.
+```bash
+$ mkdir ~/dev/geo && cd ~/dev/geo
+$ git clone https://github.com/opentraveldata/quality-assurance.git opentraveldata-qa
+$ cd opentraveldata-qa
+$ ./mkLocalDir.sh 
+$ pipenv install numpy networkx
+```
+
+### Launch Python scripts with ``pipenv``
+* Check that the Python environment is ready
+```bash
+$ pipenv check
+Checking PEP 508 requirements…
+Passed!
+Checking installed package safety…
+All good!
+```
+
+* Just prefix the commands with ``pipenv run``:
+```bash
+$ pipenv run checkers/check-por-cmp-optd-unlc.py > results/optd-qa-por-optd-vs-unlc.json
+```
+
+## ``virtualenv``
+
+### On CentOS
 * If needed, enable the [EPEL](https://fedoraproject.org/wiki/EPEL) repository:
 ```bash
 $ sudo yum -y install epel-release
@@ -50,7 +99,7 @@ $ ln -s venv${PYTHON_VERSION} venv3
 $ sudo yum -y install java-1.8.0-openjdk-devel java-1.8.0-openjdk-javadoc
 ```
 
-## Fedora
+### Fedora
 * Install ``python3`` and ``python3-pip`` packages
   (but not ``virtualenv``):
 ```bash
@@ -82,7 +131,7 @@ $ ln -s venv${PYTHON_VERSION} venv3
 $ sudo dnf -y install java-1.8.0-openjdk-devel java-1.8.0-openjdk-javadoc
 ```
 
-## MacOS
+### MacOS
 * With your favorite MacOS package manager, for instance
   [Homebrew](https://brew.sh), install Python 3:
 ```bash
@@ -123,48 +172,59 @@ _EOF
 $ frameworkpython myPyscript.py
 ```
 
-## General - A few useful packages
+### General - A few useful packages
 An arbitrary selection of useful packages.
 
 * Activate the Python virtual environment:
 ```bash
 $ source ~/dev/venv3/bin/activate
+(venv3.7) $ python --version
+Python 3.7.0
 ```
 
 * Upgrade ``pip`` if needed:
 ```bash
-$ pip install -U pip
+(venv3.7) $ pip install -U pip
 ```
 
-### Machine Learning (ML)
+#### Machine Learning (ML)
 * [NumPy](http://www.numpy.org), [SciKit-Learn](http://scikit-learn.org/stable),
   [Pandas](http://pandas.pydata.org), [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable),
   [Dask](http://dask.org):
 ```bash
-$ pip install -U numpy scikit-learn pandas jupyterlab dask
+(venv3.7) $ pip install -U numpy scikit-learn pandas jupyterlab dask
 ```
 
 * [Matplotlib](https://matplotlib.org), [Seaborn](https://seaborn.pydata.org):
 ```bash
-* pip install -U matplotlib seaborn
+(venv3.7) * pip install -U matplotlib seaborn
 ```
 
 * [Featuretools](http://www.featuretools.com)(not available on CentOS 7):
 ```bash
-$ pip install -U featuretools
+(venv3.7) $ pip install -U featuretools
 ```
 
 * [Altair for visualization](https://altair-viz.github.io):
 ```bash
-$ pip install -U altair vega_datasets gpdvega
+(venv3.7) $ pip install -U altair vega_datasets gpdvega
 ```
 
 * [PySpark](https://spark.apache.org/docs/2.3.0/api/python/pyspark.html):
 ```bash
-$ pip install -U pyspark
+(venv3.7) $ pip install -U pyspark
 ```
 
 # Typical session
+
+## ``pipenv``
+* Prefix any Python command/script with ``pipenv run``:
+```bash
+$ pipenv run python --version
+Python 3.7.0
+```
+
+## ``virtualenv``
 * Activate the Python virtual environment:
 ```bash
 $ source ~/dev/venv3/bin/activate
@@ -172,13 +232,13 @@ $ source ~/dev/venv3/bin/activate
 
 * Use Python:
 ```bash
-$ python --version
+(venv3.7) $ python --version
 Python 3.7.0
 ```
 
 * When done with the need for Python, deactivate the virtual environment:
 ```bash
-$ deactivate
+(venv3.7) $ deactivate
 ```
 
 # PySpark
@@ -188,7 +248,7 @@ $ deactivate
 
 * Launch a Spark Shell:
 ```bash
-$ spark-shell
+(venv3.7) $ spark-shell
 [...]
 Spark context Web UI available at http://localhost:4040
 Spark context available as 'sc' (master = local[*], app id = local-12345).
