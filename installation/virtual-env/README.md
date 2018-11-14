@@ -20,6 +20,12 @@ such as Jupyter Lab, is to use a
 
 ### Linux
 
+#### Debian / Ubuntu
+```bash
+$ apt-get install python3-pip python3-all
+$ pip3 install --user -U pipenv
+```
+
 #### CentOS
 ```bash
 $ yum -y install pipenv
@@ -43,7 +49,7 @@ $ mkdir ~/dev/geo && cd ~/dev/geo
 $ git clone https://github.com/opentraveldata/quality-assurance.git opentraveldata-qa
 $ cd opentraveldata-qa
 $ ./mkLocalDir.sh 
-$ pipenv install numpy networkx
+$ pipenv --python /usr/bin/python3 install
 ```
 
 ### Launch Python scripts with ``pipenv``
