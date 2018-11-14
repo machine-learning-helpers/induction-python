@@ -10,6 +10,7 @@ such as Jupyter Lab, is to use a
 
 ## See also
 * [Pipenv: Python Development Workflow for Humans](http://pypi.org/project/pipenv)
+* [Basic Usage of Pipenv](http://pipenv.readthedocs.io/en/latest/basics/)
 * [Pipenv and Virtual Environments](http://docs.python-guide.org/dev/virtualenvs/)
 * [Installing Python ``virtualenv`` on CentOS 7](https://blog.teststation.org/centos/python/2016/05/11/installing-python-virtualenv-centos-7)
 
