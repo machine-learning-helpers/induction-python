@@ -12,11 +12,101 @@ such as Jupyter Lab, is to use a
 * [Pipenv: Python Development Workflow for Humans](http://pypi.org/project/pipenv)
 * [Basic Usage of Pipenv](http://pipenv.readthedocs.io/en/latest/basics/)
 * [Pipenv and Virtual Environments](http://docs.python-guide.org/dev/virtualenvs/)
-* [Installing Python ``virtualenv`` on CentOS 7](https://blog.teststation.org/centos/python/2016/05/11/installing-python-virtualenv-centos-7)
+* [Pyenv on GitHub](http://github.com/pyenv/pyenv)
+* [How to install `Pyenv` in Linux](http://www.tecmint.com/pyenv-install-and-manage-multiple-python-versions-in-linux/)
+* [Installing Python `virtualenv` on CentOS 7](http://blog.teststation.org/centos/python/2016/05/11/installing-python-virtualenv-centos-7)
 
 # Installation
+As the way to manage virtual environments in Python is still not fully stable,
+we explain here a robust way to use those Python virtual environments on any
+platform.
 
-## ``pipenv``
+## Introduction to Pyenv
+[Pyenv](https://github.com/pyenv/pyenv) allows to install in parallel
+on any platform any version of Python, from old deprecated ones to
+the most recent ones, including the development versions.
+
+Pyenv is packaged on some platforms (e.g., MacOS), but needs to be installed
+manually on some others (e.g., CentOS). The procedure of installation
+for `pyenv` is given below.
+
+Pyenv installs the Python binaries into a folder structure local
+to the user (typically, `~/.pyenv/`), so that they do not interfere
+with the system-wide Python version.
+
+## Introduction to `pipenv`
+[`pipenv`](http://pypi.org/project/pipenv) is now an official part of Python
+and integrates well with `virtualenv` and `pyenv`, even though that latter
+is not (yet?) part of the official Python distribution.
+
+`pipenv` allows to install in parallel, for any specific project,
+the full stack of Python dependencies (e.g., NumPy) needed
+by those projects.
+
+`pipenv` installs the Python dependencies into `virtualenv` directories
+(typically, in `~/.local/share/virtualenvs/`),
+one per specific project or directory, and manages those dependencies
+through human-readable text files (`Pipfile` and `Pipfile.lock`),
+which can be added to the projects.
+
+## Installation of `pyenv`
+The Python binaries are installed in `~/.pyenv`, where `pipenv` can find them.
+
+### CentOS 7
+* (As `root`,) Install a few dependencies:
+```bash
+$ sudo yum -y install epel-release
+# sudo yum -y install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
+```
+
+* (As a standard user,) Grab the the latest `pyenv` source tree
+  from its Github repository and install it in `~/.pyenv`:
+```bash
+$ git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
+```
+
+* The environment variable `PYENV_ROOT` needs to be set,
+  and `$PYENV_ROOT/bin` added to `PATH`. `shims` then has to be enabled,
+  as well as relevant auto-completion:
+```bash
+$ cat >> ~/.baashrc << _EOF
+
+## Python pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH="${PYENV_ROOT}/bin:${PATH}"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+_EOF
+$ . ~/.bashrc
+```
+
+### MacOS
+```bash
+$ brew install pyenv
+```
+
+### All: Install a specific version of Python
+* Check which versions of Python 3.7 are available to `pyenv` to install:
+```bash
+$ pyenv install --list | cut -d' ' -f3,3 | grep -e "^3.7"
+3.7.0
+3.7-dev
+3.7.1
+```
+
+* Install the version `3.7.1` of Python (latest stable version,
+  as of December 2018):
+```bash
+$ pyenv install 3.7.1
+Downloading Python-3.7.1.tar.xz...
+-> https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+Installing Python-3.7.1...
+Installed Python-3.7.1 to ~/.pyenv/versions/3.7.1
+```
+
+## Installation of `pipenv`
 
 ### Linux
 
@@ -43,7 +133,7 @@ $ brew install pipenv
 
 ### Install specific versions in a given project
 * Go to a project directory and install the required libraries.
-  It will create a ``Pipfile`` file, if not already exising.
+  It will create a `Pipfile` file, if not already exising.
 ```bash
 $ mkdir ~/dev/geo && cd ~/dev/geo
 $ git clone https://github.com/opentraveldata/quality-assurance.git opentraveldata-qa
@@ -52,7 +142,7 @@ $ ./mkLocalDir.sh
 $ pipenv --python /usr/bin/python3 install
 ```
 
-### Launch Python scripts with ``pipenv``
+### Launch Python scripts with `pipenv`
 * Check that the Python environment is ready
 ```bash
 $ pipenv check
@@ -62,12 +152,12 @@ Checking installed package safety…
 All good!
 ```
 
-* Just prefix the commands with ``pipenv run``:
+* Just prefix the commands with `pipenv run`:
 ```bash
 $ pipenv run checkers/check-por-cmp-optd-unlc.py > results/optd-qa-por-optd-vs-unlc.json
 ```
 
-## ``virtualenv``
+## `virtualenv`
 
 ### On CentOS
 * If needed, enable the [EPEL](https://fedoraproject.org/wiki/EPEL) repository:
@@ -75,18 +165,18 @@ $ pipenv run checkers/check-por-cmp-optd-unlc.py > results/optd-qa-por-optd-vs-u
 $ sudo yum -y install epel-release
 ```
 
-* Install ``python34`` and ``python-pip`` packages
-  (but not ``virtualenv``):
+* Install `python34` and `python-pip` packages
+  (but not `virtualenv`):
 ```bash
 $ sudo yum -y install python34 python34-devel python34-pip
 ```
 
-* If needed, uninstall the CentOS-packaged ``virtualenv``:
+* If needed, uninstall the CentOS-packaged `virtualenv`:
 ```bash
 $ sudo yum remove python-virtualenv
 ```
 
-* Update ``pip`` and install ``virtualenv`` with ``pip``:
+* Update `pip` and install `virtualenv` with `pip`:
 ```bash
 $ sudo pip3 install -U pip
 $ sudo pip3 install virtualenv
@@ -107,18 +197,18 @@ $ sudo yum -y install java-1.8.0-openjdk-devel java-1.8.0-openjdk-javadoc
 ```
 
 ### Fedora
-* Install ``python3`` and ``python3-pip`` packages
-  (but not ``virtualenv``):
+* Install `python3` and `python3-pip` packages
+  (but not `virtualenv`):
 ```bash
 $ sudo dnf -y install python3 python3-devel python3-pip
 ```
 
-* If needed, uninstall the Fedora-packaged ``virtualenv``:
+* If needed, uninstall the Fedora-packaged `virtualenv`:
 ```bash
 $ sudo dnf remove python3-virtualenv
 ```
 
-* Update ``pip`` and install ``virtualenv`` with ``pip``:
+* Update `pip` and install `virtualenv` with `pip`:
 ```bash
 $ sudo pip install -U pip
 $ sudo pip install virtualenv
