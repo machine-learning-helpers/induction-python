@@ -69,7 +69,7 @@ $ git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
   and `$PYENV_ROOT/bin` added to `PATH`. `shims` then has to be enabled,
   as well as relevant auto-completion:
 ```bash
-$ cat >> ~/.baashrc << _EOF
+$ cat >> ~/.bashrc << _EOF
 
 ## Python pyenv
 export PYENV_ROOT="${HOME}/.pyenv"
@@ -117,8 +117,9 @@ $ pip3 install --user -U pipenv
 ```
 
 #### CentOS
+* As a standard user:
 ```bash
-$ yum -y install pipenv
+$ pip install --user -U pipenv
 ```
 
 #### Fedora
@@ -139,7 +140,22 @@ $ mkdir ~/dev/geo && cd ~/dev/geo
 $ git clone https://github.com/opentraveldata/quality-assurance.git opentraveldata-qa
 $ cd opentraveldata-qa
 $ ./mkLocalDir.sh 
-$ pipenv --python /usr/bin/python3 install
+$ pipenv install
+Creating a virtualenv for this project…
+Pipfile: ~/dev/geo/opentraveldata-qa/Pipfile
+Using ~/.pyenv/versions/3.7.1/bin/python3 (3.7.1) to create virtualenv…
+⠋ Creating virtual environment...Using base prefix '~/.pyenv/versions/3.7.1'
+New python executable in ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq/bin/python3
+Also creating executable in ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq/bin/python
+Installing setuptools, pip, wheel...done.
+Running virtualenv with interpreter ~/.pyenv/versions/3.7.1/bin/python3
+
+✔ Successfully created virtual environment! 
+Virtualenv location: ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq
+Installing dependencies from Pipfile.lock (a65489)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 0/0 — 00:00:00
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
 ```
 
 ### Launch Python scripts with `pipenv`
@@ -154,7 +170,7 @@ All good!
 
 * Just prefix the commands with `pipenv run`:
 ```bash
-$ pipenv run checkers/check-por-cmp-optd-unlc.py > results/optd-qa-por-optd-vs-unlc.json
+$ pipenv run checkers/check-por-cmp-optd-unlc.py
 ```
 
 ## `virtualenv`
