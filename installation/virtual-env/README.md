@@ -52,13 +52,24 @@ which can be added to the projects.
 ## Installation of `pyenv`
 The Python binaries are installed in `~/.pyenv`, where `pipenv` can find them.
 
-### CentOS 7
-* (As `root`,) Install a few dependencies:
+### Dependencies - CentOS 7
+* (As `root`,) If needed, enable the [EPEL](https://fedoraproject.org/wiki/EPEL) repository:
 ```bash
 $ sudo yum -y install epel-release
-# sudo yum -y install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
 ```
 
+* (Still as `root`,) Install a few dependencies:
+```bash
+$ sudo yum -y install git gcc zlib-devel bzip2-devel readline-devel sqlite-devel openssl-devel libffi-devel
+```
+
+### Dependencies - Ubuntu / Debian
+* (As `root`,) Install a few dependencies:
+```bash
+$ sudo aptitude install zlib1g-dev libbz2-dev libsqlite3-dev libreadline-dev libssl-dev libffi-dev
+```
+
+### All Linux distributions
 * (As a standard user,) Grab the the latest `pyenv` source tree
   from its Github repository and install it in `~/.pyenv`:
 ```bash
@@ -83,6 +94,7 @@ $ . ~/.bashrc
 ```
 
 ### MacOS
+* Thanks to [Homebrew](https://brew.sh), install `pyenv`:
 ```bash
 $ brew install pyenv
 ```
@@ -173,92 +185,18 @@ All good!
 $ pipenv run checkers/check-por-cmp-optd-unlc.py
 ```
 
-## `virtualenv`
-
-### On CentOS
-* If needed, enable the [EPEL](https://fedoraproject.org/wiki/EPEL) repository:
-```bash
-$ sudo yum -y install epel-release
-```
-
-* Install `python34` and `python-pip` packages
-  (but not `virtualenv`):
-```bash
-$ sudo yum -y install python34 python34-devel python34-pip
-```
-
-* If needed, uninstall the CentOS-packaged `virtualenv`:
-```bash
-$ sudo yum remove python-virtualenv
-```
-
-* Update `pip` and install `virtualenv` with `pip`:
-```bash
-$ sudo pip3 install -U pip
-$ sudo pip3 install virtualenv
-```
-
-* Create and activate a new Python 3 virtual environment:
-```bash
-$ mkdir -p ~/dev && cd ~/dev
-$ PYTHON_VERSION=$(python3 --version 2>&1 | cut -d' ' -f2,2 | cut -d'.' -f1,2)
-$ virtualenv -p python3 venv${PYTHON_VERSION}
-$ ln -s venv${PYTHON_VERSION} venv3
-```
-
-* Optionally, install [Java 8](http://openjdk.java.net/projects/jdk8u),
-  needed for instance by [Spark](https://spark.apache.org):
-```bash
-$ sudo yum -y install java-1.8.0-openjdk-devel java-1.8.0-openjdk-javadoc
-```
+## Java
+Java is needed for at least a few big data related packages, for instance
+Hive. The [OpenJDK 8](http://openjdk.java.net/projects/jdk8u) should be good
+enough for [Spark](https://spark.apache.org) and
+[PySpark](http://spark.apache.org/docs/latest/api/python).
 
 ### Fedora
-* Install `python3` and `python3-pip` packages
-  (but not `virtualenv`):
-```bash
-$ sudo dnf -y install python3 python3-devel python3-pip
-```
-
-* If needed, uninstall the Fedora-packaged `virtualenv`:
-```bash
-$ sudo dnf remove python3-virtualenv
-```
-
-* Update `pip` and install `virtualenv` with `pip`:
-```bash
-$ sudo pip install -U pip
-$ sudo pip install virtualenv
-```
-
-* Create and activate a new Python 3 virtual environment:
-```bash
-$ mkdir -p ~/dev && cd ~/dev
-$ PYTHON_VERSION=$(python3 --version 2>&1 | cut -d' ' -f2,2 | cut -d'.' -f1,2)
-$ python3 -m venv venv${PYTHON_VERSION}
-$ ln -s venv${PYTHON_VERSION} venv3
-```
-
-* Optionally, install [Java 8](http://openjdk.java.net/projects/jdk8u),
-  needed for instance by [Spark](https://spark.apache.org):
 ```bash
 $ sudo dnf -y install java-1.8.0-openjdk-devel java-1.8.0-openjdk-javadoc
 ```
 
-### MacOS
-* With your favorite MacOS package manager, for instance
-  [Homebrew](https://brew.sh), install Python 3:
-```bash
-$ brew install python3
-```
-
-* Install the Python 3 virtual environment:
-```bash
-$ mkdir -p ~/dev && cd ~/dev
-$ PYTHON_VERSION=$(python3 --version 2>&1 | cut -d' ' -f2,2 | cut -d'.' -f1,2)
-$ python3 -m venv venv${PYTHON_VERSION}
-$ ln -s venv${PYTHON_VERSION} venv3
-```
-
+## Support for graphical frameworks
 * Add a Shell script function for graphical packages
   (eg, [Matplotlib](https://matplotlib.org)) in ``~/.bashrc``:
 ```bash
@@ -285,73 +223,90 @@ _EOF
 $ frameworkpython myPyscript.py
 ```
 
-### General - A few useful packages
+## General - A few useful Python packages
 An arbitrary selection of useful packages.
 
-* Activate the Python virtual environment:
+* Machine Learning (ML)
+  + [NumPy](http://www.numpy.org)
+  + [SciKit-Learn](http://scikit-learn.org/stable)
+  + [Pandas](http://pandas.pydata.org)
+  + [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable)
+  + [Dask](http://dask.org)
 ```bash
-$ source ~/dev/venv3/bin/activate
-(venv3.7) $ python --version
-Python 3.7.0
-```
-
-* Upgrade ``pip`` if needed:
-```bash
-(venv3.7) $ pip install -U pip
-```
-
-#### Machine Learning (ML)
-* [NumPy](http://www.numpy.org), [SciKit-Learn](http://scikit-learn.org/stable),
-  [Pandas](http://pandas.pydata.org), [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable),
-  [Dask](http://dask.org):
-```bash
-(venv3.7) $ pip install -U numpy scikit-learn pandas jupyterlab dask
+$ pipenv install numpy scikit-learn pandas jupyterlab dask
 ```
 
 * [Matplotlib](https://matplotlib.org), [Seaborn](https://seaborn.pydata.org):
 ```bash
-(venv3.7) * pip install -U matplotlib seaborn
+$ pipenv install matplotlib seaborn
 ```
 
 * [Featuretools](http://www.featuretools.com)(not available on CentOS 7):
 ```bash
-(venv3.7) $ pip install -U featuretools
+$ pipenv install featuretools
 ```
 
 * [Altair for visualization](https://altair-viz.github.io):
 ```bash
-(venv3.7) $ pip install -U altair vega_datasets gpdvega
+$ pipenv install altair vega_datasets gpdvega
 ```
 
 * [PySpark](https://spark.apache.org/docs/2.3.0/api/python/pyspark.html):
 ```bash
-(venv3.7) $ pip install -U pyspark
+$ pipenv install pyspark
 ```
 
 # Typical session
 
-## ``pipenv``
+## `pyenv`
+* Check the installed versions of Python:
+```bash
+$ pyenv versions
+* system (set by ~/.pyenv/version)
+  3.7.1
+```
+
+## `pipenv`
 * Prefix any Python command/script with ``pipenv run``:
 ```bash
+$ mkdir -p /tmp/$USER && cd /tmp/$USER
+$ pipenv install --python 3.7
+Creating a virtualenv for this project…
+Pipfile: /tmp/$USER/Pipfile
+Using ~/.pyenv/versions/3.7.1/bin/python3.7 (3.7.1) to create virtualenv…
+⠹Running virtualenv with interpreter ~/.pyenv/versions/3.7.1/bin/python3.7
+Using base prefix '~/.pyenv/versions/3.7.1'
+New python executable in ~/.local/share/virtualenvs/$USER-bV5bYO4h/bin/python3.7
+Also creating executable in ~/.local/share/virtualenvs/$USER-bV5bYO4h/bin/python
+Installing setuptools, pip, wheel...
+done.
+
+Virtualenv location: ~/.local/share/virtualenvs/$USER-bV5bYO4h
+Creating a Pipfile for this project…
+Pipfile.lock not found, creating…
+Locking [dev-packages] dependencies…
+Locking [packages] dependencies…
+Updated Pipfile.lock (a65489)!
+Installing dependencies from Pipfile.lock (a65489)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 0/0 — 00:00:00
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+```
+
+* Use Python without activating the virtual environment:
+```bash
+$ cd /tmp/$USER
 $ pipenv run python --version
-Python 3.7.0
+Python 3.7.1
 ```
 
-## ``virtualenv``
-* Activate the Python virtual environment:
+* Use Python in an activated virtual environment:
 ```bash
-$ source ~/dev/venv3/bin/activate
-```
-
-* Use Python:
-```bash
-(venv3.7) $ python --version
-Python 3.7.0
-```
-
-* When done with the need for Python, deactivate the virtual environment:
-```bash
-(venv3.7) $ deactivate
+$ cd /tmp/$USER
+$ pipenv shell
+($USER) $ python --version
+Python 3.7.1
+($USER) $ exit
 ```
 
 # PySpark
@@ -361,7 +316,7 @@ Python 3.7.0
 
 * Launch a Spark Shell:
 ```bash
-(venv3.7) $ spark-shell
+$ pipenv run spark-shell
 [...]
 Spark context Web UI available at http://localhost:4040
 Spark context available as 'sc' (master = local[*], app id = local-12345).
@@ -370,15 +325,15 @@ Welcome to
       ____              __
      / __/__  ___ _____/ /__
     _\ \/ _ \/ _ `/ __/  '_/
-   /___/ .__/\_,_/_/ /_/\_\   version 2.3.2
+   /___/ .__/\_,_/_/ /_/\_\   version 2.4.0
       /_/
          
-Using Scala version 2.11.8 (OpenJDK 64-Bit Server VM, Java 1.8.0_181)
+Using Scala version 2.11.12 (OpenJDK 64-Bit Server VM, Java 1.8.0_181)
 Type in expressions to have them evaluated.
 Type :help for more information.
 
 scala> spark.version
-res0: String = 2.3.2
+res0: String = 2.4.0
 
 scala> :quit
 $ 
