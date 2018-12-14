@@ -226,6 +226,16 @@ $ frameworkpython myPyscript.py
 ## General - A few useful Python packages
 An arbitrary selection of useful packages.
 
+* [Cython, C-extensions for Python](http://cython.org)(may be needed to re-compile some extra Python modules):
+```bash
+$ pipenv install cython
+```
+
+* [NetworkX, software for complex networks](http://networkx.github.io):
+```bash
+$ pipenv install networkx
+```
+
 * Machine Learning (ML)
   + [NumPy](http://www.numpy.org)
   + [SciKit-Learn](http://scikit-learn.org/stable)
@@ -236,9 +246,9 @@ An arbitrary selection of useful packages.
 $ pipenv install numpy scikit-learn pandas jupyterlab dask
 ```
 
-* [Matplotlib](https://matplotlib.org), [Seaborn](https://seaborn.pydata.org):
+* [Seaborn](https://seaborn.pydata.org):
 ```bash
-$ pipenv install matplotlib seaborn
+$ pipenv install seaborn
 ```
 
 * [Featuretools](http://www.featuretools.com)(not available on CentOS 7):
@@ -254,6 +264,26 @@ $ pipenv install altair vega_datasets gpdvega
 * [PySpark](https://spark.apache.org/docs/2.3.0/api/python/pyspark.html):
 ```bash
 $ pipenv install pyspark
+```
+
+* Graphical, maps and geographical packages:
+  + [Matplotlib](https://matplotlib.org)
+  + [Cartopy](https://scitools.org.uk/cartopy/docs/latest/)
+  + [(deprecated) BaseMap, part of Matplotlib](http://github.com/matplotlib/basemap)
+  + [NeoBase, GeoBase rebooted](http://neobase.readthedocs.io)
+```bash
+$ pipenv install matplotlib cartopy neobase
+```
+
+* [OpenTracing](http://opentracing.io) for [ElasticSearch (ELK)](http://elastic.co):
+```bash
+$ pipenv install elasticsearch_opentracing
+```
+
+* Install latest versions (e.g., of `pyproj` and `basemap`):
+```bash
+$ pipenv install git+https://github.com/jswhit/pyproj.git#egg=pyproj \
+         git+https://github.com/matplotlib/basemap.git#egg=basemap
 ```
 
 # Typical session
