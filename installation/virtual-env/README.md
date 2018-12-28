@@ -1,19 +1,21 @@
 # Overview
 [That section](http://github.com/machine-learning-helpers/induction-python/tree/master/installation/virtual-env)
 explains how to install and configure Python virtual environments.
-It is part of [the Python induction for Machine Learning (ML) project](http://github.com/machine-learning-helpers/induction-python),
+It is part of the
+[Python induction for Machine Learning (ML) project](http://github.com/machine-learning-helpers/induction-python),
 but may be referenced by many other projects.
 
 An alternative way to install Python virtual environments, and software pieces
-such as Jupyter Lab, is to use a
-[Docker image for Python Jupyter Lab notebooks](http://github.com/machine-learning-helpers/docker-python-jupyter).
+such as Jupyter Lab, is to launch ready-to-use
+[Docker images for Python Jupyter Lab notebooks](https://cloud.docker.com/u/artificialintelligence/repository/docker/artificialintelligence/python-jupyter).
 
 ## See also
+* [Docker images with Jupyter Lab notebooks pre-installed](https://cloud.docker.com/u/artificialintelligence/repository/docker/artificialintelligence/python-jupyter)
+* [Pyenv on GitHub](http://github.com/pyenv/pyenv)
+* [How to install `Pyenv` in Linux](http://www.tecmint.com/pyenv-install-and-manage-multiple-python-versions-in-linux/)
 * [Pipenv: Python Development Workflow for Humans](http://pypi.org/project/pipenv)
 * [Basic Usage of Pipenv](http://pipenv.readthedocs.io/en/latest/basics/)
 * [Pipenv and Virtual Environments](http://docs.python-guide.org/dev/virtualenvs/)
-* [Pyenv on GitHub](http://github.com/pyenv/pyenv)
-* [How to install `Pyenv` in Linux](http://www.tecmint.com/pyenv-install-and-manage-multiple-python-versions-in-linux/)
 * [Installing Python `virtualenv` on CentOS 7](http://blog.teststation.org/centos/python/2016/05/11/installing-python-virtualenv-centos-7)
 
 # Installation
@@ -236,34 +238,25 @@ $ pipenv install cython
 $ pipenv install networkx
 ```
 
-* Machine Learning (ML)
-  + [NumPy](http://www.numpy.org)
-  + [SciKit-Learn](http://scikit-learn.org/stable)
-  + [Pandas](http://pandas.pydata.org)
-  + [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable)
-  + [Dask](http://dask.org)
+* [Graphviz](http://www.graphviz.org), graph visualization software:
 ```bash
-$ pipenv install numpy scikit-learn pandas jupyterlab dask
+$ pipenv install graphviz
 ```
 
-* [Seaborn](https://seaborn.pydata.org):
+* [Seaborn](http://seaborn.pydata.org), statistical data visualization:
 ```bash
 $ pipenv install seaborn
 ```
 
-* [Featuretools](http://www.featuretools.com)(not available on CentOS 7):
+* [imageio](http://imageio.github.io), Python library for reading
+  and writing image data:
 ```bash
-$ pipenv install featuretools
+$ pipenv install imageio
 ```
 
 * [Altair for visualization](https://altair-viz.github.io):
 ```bash
 $ pipenv install altair vega_datasets gpdvega
-```
-
-* [PySpark](https://spark.apache.org/docs/2.3.0/api/python/pyspark.html):
-```bash
-$ pipenv install pyspark
 ```
 
 * Graphical, maps and geographical packages:
@@ -275,6 +268,99 @@ $ pipenv install pyspark
 $ pipenv install matplotlib cartopy neobase
 ```
 
+* [xlrd](http://www.python-excel.org), working with Excel Files in Python:
+```bash
+$ pipenv install xlrd
+```
+
+* Machine Learning (ML)
+  + [NumPy](http://www.numpy.org)
+  + [SciKit-Learn](http://scikit-learn.org/stable)
+  + [Pandas](http://pandas.pydata.org)
+  + [Dask](http://dask.org)
+```bash
+$ pipenv install numpy scikit-learn pandas dask
+```
+
+  + [ml-tools](https://github.com/kostasthebarbarian/mltools), a collection
+    of ML tools for object detection and classification on Digital Globe (DG)
+	imagery:
+```bash
+$ pipenv install ml-tools
+```
+
+  + [Tensorflow](http://www.tensorflow.org/api_docs/python/), an open source
+    ML framework for everyone:
+```bash
+$ pipenv install tensorflow
+```
+
+  + [Keras](http://keras.io), the Python Deep Learning (DL) library:
+```bash
+$ pipenv install keras scikit-keras
+```
+
+  + [Theano](http://deeplearning.net/software/theano/):
+```bash
+$ pipenv install Theano
+```
+
+  + [gym](http://gym.openai.com), a toolkit for developing and comparing
+    reinforcement learning (RL) algorithms:
+```bash
+$ pipenv install gym
+```
+
+  + [PyTorch](http://pytorch.org), an open source deep learning (DL) platform
+    that provides a seamless path from research prototyping
+	to production deployment:
+```bash
+$ pipenv install pytorch
+```
+
+  + [ONNXMLTools](http://github.com/onnx/onnxmltools), for the conversion
+    of models to [ONNX](http://onnx.ai):
+```bash
+$ pipenv install onnxmltools
+```
+
+  + [sklearn-pmml-model](http://github.com/iamDecode/sklearn-pmml-model),
+    library to parse [PMML](http://dmg.org/pmml/v4-3/GeneralStructure.html)
+	models into Scikit-learn estimators:
+```bash
+$ pipenv install sklearn-pmml-model
+```
+
+  + [surprise](http://surpriselib.com), a Python
+    [scikit](https://www.scipy.org/scikits.html) building and analyzing
+	recommender systems:
+```bash
+$ pipenv install surprise
+```
+
+  + [parfit](http://github.com/jmcarpenter2/parfit), package for parallelizing
+    the fit and flexibly scoring of Scikit-learn ML models,
+	with visualization routines:
+```bash
+$ pipenv install parfit
+```
+
+  + [mcfly](http://github.com/NLeSC/mcfly), a deep learning (DL) tool
+    for time series classification:
+```bash
+$ pipenv install mcfly
+```
+
+* [Featuretools](http://www.featuretools.com)(not available on CentOS 7):
+```bash
+$ pipenv install featuretools
+```
+
+* [PySpark](https://spark.apache.org/docs/2.3.0/api/python/pyspark.html):
+```bash
+$ pipenv install pyspark
+```
+
 * [OpenTracing](http://opentracing.io) for [ElasticSearch (ELK)](http://elastic.co):
 ```bash
 $ pipenv install elasticsearch_opentracing
@@ -284,6 +370,31 @@ $ pipenv install elasticsearch_opentracing
 ```bash
 $ pipenv install git+https://github.com/jswhit/pyproj.git#egg=pyproj \
          git+https://github.com/matplotlib/basemap.git#egg=basemap
+```
+
+* [Jupyter ecosystem](https://jupyter.org/documentation)
+  + [Jupyter Lab](https://jupyterlab.readthedocs.io/en/stable):
+```bash
+$ pipenv install jupyterlab
+```
+
+  + Various Jupyter modules:
+```bash
+$ pipenv install jupyter-git jupyter-pip jupyter-beautifier jupyter-full-width jupyter-notebook-gist
+$ pipenv install jupyter_dashboards jupyter_dashboards_bundlers jupyter-spark
+$ pipenv install jupyter_utils jupyter-tools
+```
+
+  + Jupyter extensions:
+```bash
+$ pipenv install jupyter_contrib_nbextensions
+$ jupyter contrib nbextension install --user
+$ jupyter labextension install jupyterlab-drawio
+```
+
+  + [Jupyter kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels):
+```bash
+$ pipenv install bash_kernel ipykernel r2_kernel
 ```
 
 # Typical session
