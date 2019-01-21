@@ -85,11 +85,11 @@ $ git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 $ cat >> ~/.bashrc << _EOF
 
 ## Python pyenv
-export PYENV_ROOT="${HOME}/.pyenv"
-export PATH="${PYENV_ROOT}/bin:${PATH}"
+export PYENV_ROOT="\${HOME}/.pyenv"
+export PATH="\${PYENV_ROOT}/bin:\${PATH}"
 
 if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
+  eval "\$(pyenv init -)"
 fi
 _EOF
 $ . ~/.bashrc
@@ -108,16 +108,17 @@ $ pyenv install --list | cut -d' ' -f3,3 | grep -e "^3.7"
 3.7.0
 3.7-dev
 3.7.1
+3.7.2
 ```
 
-* Install the version `3.7.1` of Python (latest stable version,
-  as of December 2018):
+* Install the version `3.7.2` of Python (latest stable version,
+  as of January 2019):
 ```bash
-$ pyenv install 3.7.1
-Downloading Python-3.7.1.tar.xz...
--> https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
-Installing Python-3.7.1...
-Installed Python-3.7.1 to ~/.pyenv/versions/3.7.1
+$ pyenv install 3.7.2
+Downloading Python-3.7.2.tar.xz...
+-> https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz
+Installing Python-3.7.2...
+Installed Python-3.7.2 to ~/.pyenv/versions/3.7.2
 ```
 
 ## Installation of `pipenv`
@@ -157,12 +158,12 @@ $ ./mkLocalDir.sh
 $ pipenv install
 Creating a virtualenv for this project…
 Pipfile: ~/dev/geo/opentraveldata-qa/Pipfile
-Using ~/.pyenv/versions/3.7.1/bin/python3 (3.7.1) to create virtualenv…
-⠋ Creating virtual environment...Using base prefix '~/.pyenv/versions/3.7.1'
+Using ~/.pyenv/versions/3.7.2/bin/python3 (3.7.2) to create virtualenv…
+⠋ Creating virtual environment...Using base prefix '~/.pyenv/versions/3.7.2'
 New python executable in ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq/bin/python3
 Also creating executable in ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq/bin/python
 Installing setuptools, pip, wheel...done.
-Running virtualenv with interpreter ~/.pyenv/versions/3.7.1/bin/python3
+Running virtualenv with interpreter ~/.pyenv/versions/3.7.2/bin/python3
 
 ✔ Successfully created virtual environment! 
 Virtualenv location: ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq
@@ -404,7 +405,7 @@ $ pipenv install bash_kernel ipykernel r2_kernel
 ```bash
 $ pyenv versions
 * system (set by ~/.pyenv/version)
-  3.7.1
+  3.7.2
 ```
 
 ## `pipenv`
@@ -414,9 +415,9 @@ $ mkdir -p /tmp/$USER && cd /tmp/$USER
 $ pipenv install --python 3.7
 Creating a virtualenv for this project…
 Pipfile: /tmp/$USER/Pipfile
-Using ~/.pyenv/versions/3.7.1/bin/python3.7 (3.7.1) to create virtualenv…
-⠹Running virtualenv with interpreter ~/.pyenv/versions/3.7.1/bin/python3.7
-Using base prefix '~/.pyenv/versions/3.7.1'
+Using ~/.pyenv/versions/3.7.1/bin/python3.7 (3.7.2) to create virtualenv…
+⠹Running virtualenv with interpreter ~/.pyenv/versions/3.7.2/bin/python3.7
+Using base prefix '~/.pyenv/versions/3.7.2'
 New python executable in ~/.local/share/virtualenvs/$USER-bV5bYO4h/bin/python3.7
 Also creating executable in ~/.local/share/virtualenvs/$USER-bV5bYO4h/bin/python
 Installing setuptools, pip, wheel...
@@ -438,7 +439,7 @@ Alternatively, run a command inside the virtualenv with pipenv run.
 ```bash
 $ cd /tmp/$USER
 $ pipenv run python --version
-Python 3.7.1
+Python 3.7.2
 ```
 
 * Use Python in an activated virtual environment:
@@ -446,7 +447,7 @@ Python 3.7.1
 $ cd /tmp/$USER
 $ pipenv shell
 ($USER) $ python --version
-Python 3.7.1
+Python 3.7.2
 ($USER) $ exit
 ```
 
