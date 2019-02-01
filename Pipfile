@@ -15,6 +15,7 @@ matplotlib = "*"
 imageio = "*"
 seaborn = "*"
 graphviz = "*"
+cookiecutter = "*"
 
 [requires]
 python_version = "3.7"

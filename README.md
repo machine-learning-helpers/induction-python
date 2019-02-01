@@ -15,10 +15,14 @@ and [Python virtual environments](https://docs.python.org/3/tutorial/venv.html),
 which can either be:
 * Installed locally on your laptop/workstation. More details are available
   in the corresponding sections of this project:
-  + [Python virtual environments](installation/virtual-env)
-  + [Jupyter Lab](installation/jupyter)
+  + [Python virtual environments](http://github.com/machine-learning-helpers/induction-python/tree/master/installation/virtual-env)
+  + [Jupyter Lab](http://github.com/machine-learning-helpers/induction-python/tree/master/installation/jupyter)
 * Run from/within Docker. More details are available on
   the [Docker images for Python Jupyter Lab notebooks project](http://github.com/machine-learning-helpers/docker-python-jupyter)
+
+* More integration with
+  [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science)
+  may happen in the future. Those guidelines are nevertheless worth the read.
 
 ## See also
 * [NumPy](http://www.numpy.org)
@@ -37,6 +41,23 @@ which can either be:
 That projects makes use of [Jupyter Lab](http://jupyterlab.readthedocs.io/en/stable/)
 and [Python virtual environments](https://docs.python.org/3/tutorial/venv.html).
 More details are available in the corresponding sections:
-* [Python virtual environments](installation/virtual-env)
-* [Jupyter Lab](installation/jupyter)
+* [Python virtual environments](http://github.com/machine-learning-helpers/induction-python/tree/master/installation/virtual-env)
+* [Jupyter Lab](http://github.com/machine-learning-helpers/induction-python/tree/master/installation/jupyter)
+
+# Cookiecutter Data Science
+* A dependency on [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+  has been added to `pipenv`. Starting a new project is now as easy as issuing the following command:
+```bash
+$ mkdir -p ~/dev/ml
+$ pipenv run cookiecutter https://github.com/drivendata/cookiecutter-data-science
+$ mv <resulting-project-directory-structure> ~/dev/ml
+$ cd ~/dev/ml/<resulting-project-directory-structure>
+$ git init .
+$ git remote https://<git-server>:/<your-preferred-repo>
+$ git push --all
+```
+
+* An example is provided in the
+  [`ml_induction_python` project folder](http://github.com/machine-learning-helpers/induction-python/tree/master/ml_induction_python)
+
 
