@@ -23,6 +23,10 @@ which can either be:
 * More integration with
   [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science)
   may happen in the future. Those guidelines are nevertheless worth the read.
+  As of February 2019, Cookiecutter Data Science works with explicit `virtualenv`
+  and `requirements.txt` files, whereas we believe that Pyenv and `pipenv`
+  are now the right choices to manage Python dependencies (as `pipenv`
+  also uses `virtualenv`, but in a more seamless way for the developer).
 
 ## See also
 * [NumPy](http://www.numpy.org)
@@ -50,11 +54,19 @@ More details are available in the corresponding sections:
 ```bash
 $ mkdir -p ~/dev/ml
 $ pipenv run cookiecutter https://github.com/drivendata/cookiecutter-data-science
+$ cp .python-version Pipfile <resulting-project-directory-structure>/
 $ mv <resulting-project-directory-structure> ~/dev/ml
-$ cd ~/dev/ml/<resulting-project-directory-structure>
+$ pushd ~/dev/ml/<resulting-project-directory-structure>
+$ pipenv install
+$ pipenv run python ./test_environment.py
+Loading .env environment variables…
+>>> Development environment passes all tests!
 $ git init .
-$ git remote https://<git-server>:/<your-preferred-repo>
+$ git remote add origin https://<git-server>:/<your-preferred-repo>
+$ git add .gitignore .python-version LICENSE Makefile Pipfile* README.md docs models notebooks references reports requirements.txt setup.py src test_environment.py tox.ini
+$ git commit -m "Project creation"
 $ git push --all
+$ popd
 ```
 
 * An example is provided in the
