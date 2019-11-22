@@ -109,16 +109,19 @@ $ pyenv install --list | cut -d' ' -f3,3 | grep -e "^3.7"
 3.7-dev
 3.7.1
 3.7.2
+3.7.3
+3.7.4
+3.7.5
 ```
 
-* Install the version `3.7.2` of Python (latest stable version,
-  as of January 2019):
+* Install the version `3.7.4` of Python (latest stable version,
+  as of November 2019):
 ```bash
-$ pyenv install 3.7.2
-Downloading Python-3.7.2.tar.xz...
--> https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz
-Installing Python-3.7.2...
-Installed Python-3.7.2 to ~/.pyenv/versions/3.7.2
+$ pyenv install 3.7.4
+Downloading Python-3.7.4.tar.xz...
+-> https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tar.xz
+Installing Python-3.7.4...
+Installed Python-3.7.4 to ~/.pyenv/versions/3.7.4
 ```
 
 ## Installation of `pipenv`
@@ -158,12 +161,12 @@ $ ./mkLocalDir.sh
 $ pipenv install
 Creating a virtualenv for this project…
 Pipfile: ~/dev/geo/opentraveldata-qa/Pipfile
-Using ~/.pyenv/versions/3.7.2/bin/python3 (3.7.2) to create virtualenv…
-⠋ Creating virtual environment...Using base prefix '~/.pyenv/versions/3.7.2'
+Using ~/.pyenv/versions/3.7.4/bin/python3 (3.7.4) to create virtualenv…
+⠋ Creating virtual environment...Using base prefix '~/.pyenv/versions/3.7.4'
 New python executable in ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq/bin/python3
 Also creating executable in ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq/bin/python
 Installing setuptools, pip, wheel...done.
-Running virtualenv with interpreter ~/.pyenv/versions/3.7.2/bin/python3
+Running virtualenv with interpreter ~/.pyenv/versions/3.7.4/bin/python3
 
 ✔ Successfully created virtual environment! 
 Virtualenv location: ~/.local/share/virtualenvs/opentraveldata-qa-JhZpfQQq
@@ -405,7 +408,7 @@ $ pipenv install bash_kernel ipykernel r2_kernel
 ```bash
 $ pyenv versions
 * system (set by ~/.pyenv/version)
-  3.7.2
+  3.7.4
 ```
 
 ## `pipenv`
@@ -415,9 +418,9 @@ $ mkdir -p /tmp/$USER && cd /tmp/$USER
 $ pipenv install --python 3.7
 Creating a virtualenv for this project…
 Pipfile: /tmp/$USER/Pipfile
-Using ~/.pyenv/versions/3.7.1/bin/python3.7 (3.7.2) to create virtualenv…
-⠹Running virtualenv with interpreter ~/.pyenv/versions/3.7.2/bin/python3.7
-Using base prefix '~/.pyenv/versions/3.7.2'
+Using ~/.pyenv/versions/3.7.1/bin/python3.7 (3.7.4) to create virtualenv…
+⠹Running virtualenv with interpreter ~/.pyenv/versions/3.7.4/bin/python3.7
+Using base prefix '~/.pyenv/versions/3.7.4'
 New python executable in ~/.local/share/virtualenvs/$USER-bV5bYO4h/bin/python3.7
 Also creating executable in ~/.local/share/virtualenvs/$USER-bV5bYO4h/bin/python
 Installing setuptools, pip, wheel...
@@ -439,7 +442,7 @@ Alternatively, run a command inside the virtualenv with pipenv run.
 ```bash
 $ cd /tmp/$USER
 $ pipenv run python --version
-Python 3.7.2
+Python 3.7.4
 ```
 
 * Use Python in an activated virtual environment:
@@ -447,7 +450,7 @@ Python 3.7.2
 $ cd /tmp/$USER
 $ pipenv shell
 ($USER) $ python --version
-Python 3.7.2
+Python 3.7.4
 ($USER) $ exit
 ```
 

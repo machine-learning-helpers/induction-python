@@ -57,7 +57,7 @@ $ pipenv run cookiecutter https://github.com/drivendata/cookiecutter-data-scienc
 $ cp .python-version Pipfile <resulting-project-directory-structure>/
 $ mv <resulting-project-directory-structure> ~/dev/ml
 $ pushd ~/dev/ml/<resulting-project-directory-structure>
-$ pipenv install
+$ pipenv install && pipenv install --dev
 $ pipenv run python ./test_environment.py
 Loading .env environment variables…
 >>> Development environment passes all tests!
