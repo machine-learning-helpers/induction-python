@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+cookiecutter = "*"
 
 [packages]
 numpy = "*"
@@ -15,7 +16,6 @@ matplotlib = "*"
 imageio = "*"
 seaborn = "*"
 graphviz = "*"
-cookiecutter = "*"
 
 [requires]
 python_version = "3.7"
