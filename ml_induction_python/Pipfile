@@ -5,6 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 cookiecutter = "*"
+pytest = "*"
+tox = "*"
+twine = "*"
 
 [packages]
 numpy = "*"
