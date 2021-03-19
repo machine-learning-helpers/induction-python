@@ -1,6 +1,6 @@
--i https://pypi.org/simple
-aniso8601==9.0.0
-anyio==2.1.0
+-i https://pypi.org/simple/
+aniso8601==9.0.1
+anyio==2.2.0
 argon2-cffi==20.1.0
 argparse==1.4.0
 async-generator==1.10
@@ -23,7 +23,7 @@ dash-table==4.11.2
 dash==1.19.0
 dask==2021.2.0
 decorator==4.4.2
-defusedxml==0.6.0
+defusedxml==0.7.1
 entrypoints==0.3
 flask-compress==1.9.0
 flask-restful==0.3.8
@@ -35,16 +35,17 @@ imageio==2.9.0
 inflection==0.5.1
 ipykernel==5.5.0
 ipython-genutils==0.2.0
-ipython==7.20.0
+ipython==7.21.0
+isodate==0.6.0
 itsdangerous==1.1.0
 jedi==0.18.0
 jinja2==2.11.3
 joblib==1.0.1
 json5==0.9.5
 jsonschema==3.2.0
-jupyter-client==6.1.11
+jupyter-client==6.1.12
 jupyter-core==4.7.1
-jupyter-server==1.4.0
+jupyter-server==1.4.1
 jupyterlab-pygments==0.1.2
 jupyterlab-server==2.3.0
 jupyterlab==3.0.8
@@ -53,14 +54,15 @@ markupsafe==1.1.1
 matplotlib==3.3.4
 mistune==0.8.4
 nbclassic==0.2.6
-nbclient==0.5.2
+nbclient==0.5.3
 nbconvert==6.0.7
 nbformat==5.1.2
 neobase==0.21.2
 nest-asyncio==1.5.1
 notebook==6.2.0
 numpy==1.20.1
-openapi-spec-validator==0.2.9
+openapi-schema-validator==0.1.4
+openapi-spec-validator==0.3.0
 opentraveldata==0.0.8.post1
 opentrepwrapper==0.7.7.post1
 packaging==20.9
@@ -69,13 +71,13 @@ pandocfilters==1.4.3
 parso==0.8.1
 pexpect==4.8.0 ; sys_platform != 'win32'
 pickleshare==0.7.5
-pillow==8.1.0
+pillow==8.1.1
 plotly==4.14.3
 prometheus-client==0.9.0
-prompt-toolkit==3.0.16
+prompt-toolkit==3.0.17
 ptyprocess==0.7.0 ; os_name != 'nt'
 pycparser==2.20
-pygments==2.8.0
+pygments==2.8.1
 pyparsing==2.4.7
 pyrsistent==0.17.3
 python-dateutil==2.8.1
@@ -90,12 +92,12 @@ seaborn==0.11.1
 send2trash==1.5.0
 six==1.15.0
 sniffio==1.2.0
-terminado==0.9.2
+terminado==0.9.3
 testpath==0.4.4
 threadpoolctl==2.1.0
 tornado==6.1
 traitlets==5.0.5
-urllib3==1.26.3
+urllib3==1.26.4
 wcwidth==0.2.5
 webencodings==0.5.1
 werkzeug==1.0.1
