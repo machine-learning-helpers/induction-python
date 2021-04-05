@@ -19,10 +19,6 @@ jupyterlab = "*"
 opentraveldata = "*"
 OpenTrepWrapper = "*"
 neobase = "*"
-flask = "*"
-flask_restful = "*"
-connexion = "*"
-requests = "*"
 dash = "*"
 
 [requires]
