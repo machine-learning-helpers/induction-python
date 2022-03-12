@@ -5,22 +5,21 @@
 #    pipenv lock --requirements
 #
 
--i https://pypi.org/simple
+-i https://pypi.org/simple/
 anyio==3.5.0; python_full_version >= '3.6.2'
-appnope==0.1.2; platform_system == 'Darwin'
 argon2-cffi-bindings==21.2.0; python_version >= '3.6'
 argon2-cffi==21.3.0; python_version >= '3.6'
 asttokens==2.0.5
 attrs==21.4.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
 babel==2.9.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
 backcall==0.2.0
-black==21.12b0; python_full_version >= '3.6.2'
+beautifulsoup4==4.10.0; python_version >= '3.1'
 bleach==4.1.0; python_version >= '3.6'
 brotli==1.0.9
 certifi==2021.10.8
 cffi==1.15.0
-charset-normalizer==2.0.10; python_version >= '3'
-click==8.0.3; python_version >= '3.6'
+charset-normalizer==2.0.12; python_version >= '3'
+click==8.0.4; python_version >= '3.6'
 cloudpickle==2.0.0; python_version >= '3.6'
 cycler==0.11.0; python_version >= '3.6'
 dash-core-components==2.0.0
@@ -31,44 +30,44 @@ dask==2022.1.0
 debugpy==1.5.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
 decorator==5.1.1; python_version >= '3.5'
 defusedxml==0.7.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'
-entrypoints==0.3; python_version >= '2.7'
-executing==0.8.2
-flask-compress==1.10.1
-flask==2.0.2; python_version >= '3.6'
-fonttools==4.28.5; python_version >= '3.7'
-fsspec==2022.1.0; python_version >= '3.6'
+entrypoints==0.4; python_version >= '3.6'
+executing==0.8.3
+flask-compress==1.11
+flask==2.0.3; python_version >= '3.6'
+fonttools==4.30.0; python_version >= '3.7'
+fsspec==2022.2.0; python_version >= '3.7'
 graphviz==0.19.1
 idna==3.3; python_version >= '3.5'
 imageio==2.13.5
-ipykernel==6.7.0; python_version >= '3.7'
+ipykernel==6.9.1; python_version >= '3.7'
 ipython-genutils==0.2.0
-ipython==8.0.0; python_version >= '3.8'
-itsdangerous==2.0.1; python_version >= '3.6'
+ipython==8.1.1; python_version >= '3.8'
+itsdangerous==2.1.1; python_version >= '3.7'
 jedi==0.18.1; python_version >= '3.6'
 jinja2==3.0.3; python_version >= '3.6'
 joblib==1.1.0; python_version >= '3.6'
 json5==0.9.6
 jsonschema==4.4.0; python_version >= '3.7'
-jupyter-client==7.1.1; python_full_version >= '3.6.1'
-jupyter-core==4.9.1; python_version >= '3.6'
-jupyter-server==1.13.3; python_version >= '3.7'
+jupyter-client==7.1.2; python_full_version >= '3.6.1'
+jupyter-core==4.9.2; python_version >= '3.6'
+jupyter-server==1.13.5; python_version >= '3.7'
 jupyterlab-pygments==0.1.2
 jupyterlab-server==2.10.3; python_version >= '3.6'
 jupyterlab==3.2.8
 kiwisolver==1.3.2; python_version >= '3.7'
 locket==0.2.1
-markupsafe==2.0.1; python_version >= '3.6'
+markupsafe==2.1.0; python_version >= '3.7'
 matplotlib-inline==0.1.3; python_version >= '3.5'
 matplotlib==3.5.1
 mistune==0.8.4
-mypy-extensions==0.4.3
-nbclassic==0.3.5; python_version >= '3.6'
-nbclient==0.5.10; python_version >= '3.7'
-nbconvert==6.4.0; python_version >= '3.7'
-nbformat==5.1.3; python_version >= '3.5'
+nbclassic==0.3.6; python_version >= '3.7'
+nbclient==0.5.13; python_version >= '3.7'
+nbconvert==6.4.4; python_version >= '3.7'
+nbformat==5.2.0; python_version >= '3.7'
 neobase==0.25.2
 nest-asyncio==1.5.4; python_version >= '3.5'
-notebook==6.4.7; python_version >= '3.6'
+notebook-shim==0.1.0; python_version >= '3.7'
+notebook==6.4.8; python_version >= '3.6'
 numpy==1.22.1
 opentraveldata==0.0.9.post1
 opentrepwrapper==0.7.7.post1
@@ -77,44 +76,41 @@ pandas==1.3.5
 pandocfilters==1.5.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
 parso==0.8.3; python_version >= '3.6'
 partd==1.2.0; python_version >= '3.5'
-pathspec==0.9.0
 pexpect==4.8.0; sys_platform != 'win32'
 pickleshare==0.7.5
-pillow==9.0.0; python_version >= '3.7'
-platformdirs==2.4.1; python_version >= '3.7'
-plotly==5.5.0; python_version >= '3.6'
-prometheus-client==0.12.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
-prompt-toolkit==3.0.24; python_full_version >= '3.6.2'
+pillow==9.0.1
+plotly==5.6.0; python_version >= '3.6'
+prometheus-client==0.13.1; python_version >= '3.6'
+prompt-toolkit==3.0.28; python_full_version >= '3.6.2'
 ptyprocess==0.7.0; os_name != 'nt'
-pure-eval==0.2.1
+pure-eval==0.2.2
 pycparser==2.21
 pygments==2.11.2; python_version >= '3.5'
-pyparsing==3.0.6; python_version >= '3.6'
+pyparsing==3.0.7; python_version >= '3.6'
 pyrsistent==0.18.1; python_version >= '3.7'
-python-dateutil==2.8.2; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'
+python-dateutil==2.8.2; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
 pytz==2021.3
 pyyaml==6.0; python_version >= '3.6'
 pyzmq==22.3.0; python_version >= '3.6'
 requests==2.27.1; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
 scikit-learn==1.0.2
-scipy==1.7.3; python_version < '3.11' and python_version >= '3.7'
+scipy==1.8.0; python_version < '3.11' and python_version >= '3.8'
 seaborn==0.11.2
 send2trash==1.8.0
-setuptools==60.5.0; python_version >= '3.7'
-six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'
+setuptools==60.9.3; python_version >= '3.7'
+six==1.16.0; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'
 sniffio==1.2.0; python_version >= '3.5'
-stack-data==0.1.4
+soupsieve==2.3.1; python_version >= '3.6'
+stack-data==0.2.0
 tenacity==8.0.1; python_version >= '3.6'
-terminado==0.12.1; python_version >= '3.6'
-testpath==0.5.0; python_version >= '3.5'
-threadpoolctl==3.0.0; python_version >= '3.6'
-tomli==1.2.3; python_version >= '3.6'
+terminado==0.13.3; python_version >= '3.7'
+testpath==0.6.0; python_version >= '3.5'
+threadpoolctl==3.1.0; python_version >= '3.6'
 toolz==0.11.2; python_version >= '3.5'
 tornado==6.1; python_version >= '3.5'
 traitlets==5.1.1; python_version >= '3.7'
-typing-extensions==4.0.1; python_version >= '3.6'
 urllib3==1.26.8; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'
 wcwidth==0.2.5
 webencodings==0.5.1
-websocket-client==1.2.3; python_version >= '3.6'
-werkzeug==2.0.2; python_version >= '3.6'
+websocket-client==1.3.1; python_version >= '3.6'
+werkzeug==2.0.3; python_version >= '3.6'
